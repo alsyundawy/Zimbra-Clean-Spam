@@ -1,5 +1,5 @@
 #!/bin/bash
-## Author: HARRY DERTIN SUTISNA
+## Author: HARRI DERTIN SUTISNA
 ## Dibuat: 13 Desember 2024
 ## Penggunaan: zimbra-clean-spam-queue.sh [opsi]
 ##
@@ -100,7 +100,7 @@ for ((i = 0; i < ${#daftar_login[@]}; i+=2)); do
             sudo -Hu zimbra $zmprov ma "$nama_pengguna@$domain" zimbraAccountStatus "$status_akun"
 
             # Membersihkan antrian email
-            sudo -Hu zimbra $postqueue -p | awk -v user="$nama_pengguna" '/user/ {print $1}' | sudo -Hu zimbra $postsuper -d -
+            sudo -Hu zimbra $postqueue -p | awk -v user="$nama_pengguna" '$0 ~ user {print $1}' | sudo -Hu zimbra $postsuper -d -
 
             echo "Akun $nama_pengguna telah diblokir dan antrian dibersihkan."
         else
@@ -108,5 +108,6 @@ for ((i = 0; i < ${#daftar_login[@]}; i+=2)); do
         fi
     fi
 
-echo "SELESAI *********************************"
 done
+
+echo "SELESAI *********************************"
