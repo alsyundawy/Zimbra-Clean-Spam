@@ -10,7 +10,7 @@
 
 # Variabel
 zimbra_log="/var/log/zimbra.log"
-domain="dominio.com"
+domain="domain.tld"
 
 zmprov="/opt/zimbra/bin/zmprov"
 postqueue="/opt/zimbra/postfix/sbin/postqueue"
